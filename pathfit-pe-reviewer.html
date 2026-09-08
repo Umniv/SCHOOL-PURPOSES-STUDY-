@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PATHFIT 101 &amp; Physical Education — Study Reviewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E1826;
+    --navy-2:#16233A;
+    --white:#FFFFFF;
+    --mist:#F4F6F9;
+    --line:#E3E7EE;
+    --ink:#10151F;
+    --muted:#5C6675;
+    --green:#1FAE63;
+    --green-soft:#E4F8ED;
+    --gold:#E8940C;
+    --gold-soft:#FFF3DF;
+    --red:#E14049;
+    --red-soft:#FDE9E9;
+    --radius:14px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+  }
+  h1,h2,h3,h4,.jersey{font-family:'Space Grotesk',system-ui,sans-serif;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  img.placeholder-none{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse at 18% -10%, #1c2d47 0%, transparent 55%),
+      var(--navy);
+    color:var(--white);
+    padding:64px 0 40px;
+  }
+  .hero .eyebrow-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:600;letter-spacing:.02em;
+    padding:5px 12px;border-radius:999px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);
+  }
+  .hero h1{
+    font-size:clamp(28px,4.4vw,44px);
+    line-height:1.12;
+    margin:0 0 14px;
+    max-width:16ch;
+  }
+  .hero p.sub{
+    font-size:16.5px;
+    color:#B9C4D6;
+    max-width:56ch;
+    margin:0 0 28px;
+  }
+  .stat-row{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);}
+  .stat{
+    flex:1 1 130px;
+    padding:16px 18px 4px 0;
+    border-right:1px solid rgba(255,255,255,.14);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .n{font-family:'Space Grotesk';font-size:26px;font-weight:700;color:var(--white);}
+  .stat .l{font-size:12.5px;color:#8FA0B8;margin-top:2px;}
+
+  /* ---------- NAV ---------- */
+  nav.subnav{
+    position:sticky;top:0;z-index:40;
+    background:rgba(14,24,38,.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  nav.subnav .scroller{
+    display:flex;gap:4px;overflow-x:auto;
+    max-width:var(--maxw);margin:0 auto;padding:0 24px;
+    scrollbar-width:none;
+  }
+  nav.subnav .scroller::-webkit-scrollbar{display:none;}
+  nav.subnav button{
+    flex:0 0 auto;
+    background:none;border:none;cursor:pointer;
+    color:#AEBAD0;font-family:'Inter';font-size:13.5px;font-weight:600;
+    padding:13px 14px;border-bottom:2px solid transparent;
+    white-space:nowrap;transition:color .15s, border-color .15s;
+  }
+  nav.subnav button:hover{color:#fff;}
+  nav.subnav button.active{color:#fff;border-bottom-color:var(--green);}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:52px 0;}
+  section.alt{background:var(--mist);}
+  .section-head{margin-bottom:28px;max-width:62ch;}
+  .kicker{
+    font-size:13px;font-weight:700;color:var(--green);
+    text-transform:uppercase;letter-spacing:.06em;margin:0 0 8px;
+  }
+  .kicker.gold{color:var(--gold);}
+  h2.title{font-size:clamp(22px,3vw,30px);margin:0 0 8px;}
+  .section-head p{color:var(--muted);font-size:15px;margin:0;}
+
+  /* jersey badge grid cards */
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  section.alt .card{background:var(--white);}
+  .badge{
+    width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk';font-weight:700;font-size:14px;
+    color:#fff;margin-bottom:14px;flex:none;
+  }
+  .badge.g{background:var(--green);}
+  .badge.a{background:var(--gold);}
+  .card h3{font-size:16px;margin:0 0 8px;}
+  .card p{font-size:14.5px;color:var(--muted);margin:0;}
+  .card .code{
+    display:inline-block;margin-top:10px;font-size:11.5px;
+    font-family:monospace;color:var(--muted);
+    background:var(--mist);padding:3px 8px;border-radius:6px;
+  }
+
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0 26px;font-size:13.5px;color:var(--muted);}
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .dot.g{background:var(--green);} .dot.a{background:var(--gold);}
+
+  /* numbered list (real sequences only) */
+  ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  ol.steps li{
+    display:flex;gap:14px;align-items:flex-start;
+    background:var(--white);border:1px solid var(--line);
+    border-radius:10px;padding:12px 14px;font-size:14.5px;
+  }
+  ol.steps li .idx{
+    font-family:'Space Grotesk';font-weight:700;color:var(--navy);
+    background:var(--mist);border-radius:6px;min-width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;font-size:13px;flex:none;
+  }
+
+  .callout{
+    border:1px solid var(--line);border-left:3px solid var(--green);
+    background:var(--green-soft);border-radius:10px;padding:16px 18px;font-size:14.5px;
+    margin-top:22px;
+  }
+  .callout.gold{border-left-color:var(--gold);background:var(--gold-soft);}
+  .callout h4{margin:0 0 6px;font-size:14.5px;}
+
+  table.rubric{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px;}
+  table.rubric th, table.rubric td{
+    text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);
+  }
+  table.rubric th{color:var(--muted);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+
+  .two-col{display:grid;gap:20px;grid-template-columns:1fr;}
+  @media(min-width:760px){.two-col{grid-template-columns:1fr 1fr;}}
+
+  .bmi-box{background:var(--navy);color:#fff;border-radius:var(--radius);padding:22px 24px;}
+  .bmi-box .formula{
+    font-family:'Space Grotesk';font-size:20px;font-weight:700;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+    border-radius:10px;padding:14px 16px;margin:14px 0;text-align:center;
+  }
+  .bmi-box .steps p{margin:4px 0;font-size:14px;color:#C6D0E0;}
+  .bmi-box .result{
+    margin-top:14px;display:inline-block;background:var(--green);color:#fff;
+    font-weight:700;font-size:13.5px;padding:6px 14px;border-radius:999px;
+  }
+
+  /* ---------- FLASHCARDS ---------- */
+  .flash-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .flash-meta{display:flex;justify-content:space-between;width:100%;max-width:480px;font-size:13px;color:var(--muted);}
+  .flash-scene{width:100%;max-width:480px;aspect-ratio:16/10;perspective:1400px;cursor:pointer;}
+  .flash-card{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;}
+  .flash-card.flipped{transform:rotateY(180deg);}
+  .face{
+    position:absolute;inset:0;backface-visibility:hidden;
+    border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:28px;text-align:center;border:1px solid var(--line);
+  }
+  .face.front{background:var(--navy);color:#fff;}
+  .face.back{background:var(--white);transform:rotateY(180deg);box-shadow:0 1px 0 var(--line) inset;}
+  .face .cat{font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+  .face.front .cat{color:#8FE0B4;}
+  .face.back .cat{color:var(--green);}
+  .face.front .term{font-family:'Space Grotesk';font-size:24px;font-weight:700;}
+  .face.back .def{font-size:15px;color:var(--ink);max-width:38ch;}
+  .face .hint{position:absolute;bottom:14px;font-size:11.5px;color:#8FA0B8;}
+  .face.back .hint{color:#B7BFCB;}
+  .flash-controls{display:flex;gap:10px;align-items:center;}
+  .btn{
+    font-family:'Inter';font-weight:600;font-size:14px;cursor:pointer;
+    border-radius:10px;padding:10px 18px;border:1px solid var(--line);background:#fff;color:var(--ink);
+    transition:transform .12s, border-color .12s;
+  }
+  .btn:hover{border-color:var(--navy);}
+  .btn:active{transform:scale(.97);}
+  .btn.primary{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .btn.primary:hover{background:#1a2b46;}
+  .btn.ghost{background:transparent;}
+  .btn:disabled{opacity:.4;cursor:not-allowed;}
+  .flash-progress{width:100%;max-width:480px;height:4px;background:var(--line);border-radius:99px;overflow:hidden;}
+  .flash-progress > div{height:100%;background:var(--green);width:0%;transition:width .3s;}
+
+  /* ---------- QUIZ ---------- */
+  .quiz-card{
+    max-width:600px;margin:0 auto;background:var(--white);
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px 22px;
+  }
+  .quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:13px;color:var(--muted);}
+  .quiz-dots{display:flex;gap:5px;}
+  .qdot{width:7px;height:7px;border-radius:50%;background:var(--line);}
+  .qdot.done{background:var(--green);}
+  .qdot.wrong{background:var(--red);}
+  .qdot.current{background:var(--navy);}
+  .q-text{font-size:17px;font-weight:600;margin:0 0 18px;line-height:1.4;}
+  .choices{display:flex;flex-direction:column;gap:9px;}
+  .choice{
+    text-align:left;border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+    background:#fff;font-size:14.5px;cursor:pointer;font-family:'Inter';color:var(--ink);
+    display:flex;align-items:center;gap:10px;transition:border-color .12s,background .12s;
+  }
+  .choice:hover{border-color:var(--navy);}
+  .choice .letter{
+    width:22px;height:22px;border-radius:6px;background:var(--mist);flex:none;
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted);
+  }
+  .choice.correct{background:var(--green-soft);border-color:var(--green);}
+  .choice.correct .letter{background:var(--green);color:#fff;}
+  .choice.incorrect{background:var(--red-soft);border-color:var(--red);}
+  .choice.incorrect .letter{background:var(--red);color:#fff;}
+  .choice[disabled]{cursor:default;}
+  .feedback{
+    margin-top:14px;font-size:13.5px;padding:12px 14px;border-radius:10px;
+    background:var(--mist);color:var(--ink);display:none;
+  }
+  .feedback.show{display:block;}
+  .quiz-actions{display:flex;justify-content:flex-end;margin-top:18px;}
+  .quiz-result{text-align:center;padding:20px 6px;}
+  .quiz-result .score{font-family:'Space Grotesk';font-size:46px;font-weight:700;}
+  .quiz-result .score span{font-size:20px;color:var(--muted);font-weight:600;}
+  .quiz-result .msg{color:var(--muted);font-size:14.5px;margin:6px 0 20px;}
+
+  footer{padding:34px 0 60px;text-align:center;color:var(--muted);font-size:13px;}
+  footer .src{margin-top:6px;font-size:12px;color:#9AA4B2;}
+
+  @media (max-width:600px){
+    .hero{padding:44px 0 28px;}
+    section{padding:38px 0;}
+    .stat{flex:1 1 45%;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .flash-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow-row">
+      <span class="tag">PE10 · Physical Education</span>
+      <span class="tag">PATHFIT 101 · Movement Competency Training</span>
+    </div>
+    <h1>Fitness, Wellness &amp; Movement — Study Reviewer</h1>
+    <p class="sub">A consolidated review of your Physical Education (Grade 10) and PATHFIT 101 – Week 4 modules: fitness components, body composition, wellness dimensions, the FITT principle, and warm-up training — with flashcards and a self-check quiz.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="n">17</div><div class="l">Core topics</div></div>
+      <div class="stat"><div class="n">28</div><div class="l">Flashcards</div></div>
+      <div class="stat"><div class="n">18</div><div class="l">Quiz questions</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">Source modules</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  <div class="scroller" id="subnavScroller">
+    <button data-target="competencies">Competencies</button>
+    <button data-target="fitness">Fitness Components</button>
+    <button data-target="bmi">Body Composition</button>
+    <button data-target="benefits">Benefits</button>
+    <button data-target="wellness">7 Dimensions</button>
+    <button data-target="fitt">FITT Principle</button>
+    <button data-target="warmup">Warm-Up (PATHFIT)</button>
+    <button data-target="flashcards">Flashcards</button>
+    <button data-target="quiz">Quiz</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- COMPETENCIES -->
+  <section id="competencies">
+    <div class="section-head">
+      <p class="kicker">Unit orientation</p>
+      <h2 class="title">Learning competencies</h2>
+      <p>What this unit expects you to be able to do by the end of the quarter.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="badge g">A</div>
+        <h3>Assess your habits</h3>
+        <p>Evaluate your physical activity, exercise routine, and eating habits against healthy-lifestyle benchmarks.</p>
+        <span class="code">PE10PF-Ia-h-39</span>
+      </div>
+      <div class="card">
+        <div class="badge g">B</div>
+        <h3>Stay active daily</h3>
+        <p>Engage in moderate to vigorous physical activity for at least 60 minutes a day, both in and out of school.</p>
+        <span class="code">PE10PF-Ib-h-45</span>
+      </div>
+    </div>
+    <div class="callout">
+      <h4>Pre-assessment scoring guide — Healthy Lifestyle Assessment</h4>
+      <table class="rubric">
+        <tr><th>Rating</th><th>Number of check marks</th></tr>
+        <tr><td>Excellent</td><td>13 – 16</td></tr>
+        <tr><td>Good</td><td>9 – 12</td></tr>
+        <tr><td>Fair</td><td>5 – 8</td></tr>
+        <tr><td>Needs Improvement</td><td>0 – 4</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- FITNESS COMPONENTS -->
+  <section id="fitness" class="alt">
+    <div class="section-head">
+      <p class="kicker">Core concept</p>
+      <h2 class="title">Physical activity, fitness &amp; recreation</h2>
+      <p>The foundational definitions before breaking fitness into its components.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Physical activity</h3>
+        <p>Regular, moderate bodily movement — roughly 30 minutes to 1 hour, 3 to 4 times a week or more — that raises your heart rate. Rest or easy days in between let your body recover from exertion.</p>
+      </div>
+      <div class="card">
+        <h3>Physical fitness</h3>
+        <p>The ability to carry out everyday tasks without becoming short of breath, tired, or sore — a reflection of how well your heart, lungs, muscles, and joints perform.</p>
+      </div>
+      <div class="card">
+        <h3>Recreational activities</h3>
+        <p>Activities pursued during leisure time, done purely to refresh and enjoy oneself.</p>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:40px;">
+      <h2 class="title">Components of physical fitness</h2>
+      <p>Fitness components fall into two families. Health-related components support everyday wellbeing; skill-related components support performance in sport.</p>
+    </div>
+    <div class="legend">
+      <span><span class="dot g"></span> Health-related</span>
+      <span><span class="dot a"></span> Skill-related</span>
+    </div>
+
+    <h3 style="font-size:15px;margin:6px 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;">Health-related components</h3>
+    <div class="grid">
+      <div class="card"><div class="badge g">MS</div><h3>Muscular strength</h3><p>The amount of force your muscles can exert — the basis for lifting, pushing, kicking, and throwing with power, and for supporting your bones and joints.</p></div>
+      <div class="card"><div class="badge g">ME</div><h3>Muscular endurance</h3><p>The ability to use a group of muscles repeatedly over a long period without tiring easily — such as pedaling a bicycle up a hilly track without stopping.</p></div>
+      <div class="card"><div class="badge g">FL</div><h3>Flexibility</h3><p>The ability to bend, twist, reach, and move your joints through their full range — used when striking a tennis ball or touching your toes while seated.</p></div>
+      <div class="card"><div class="badge g">CE</div><h3>Cardiorespiratory endurance</h3><p>The ability to sustain activity that demands increased oxygen over time. Running, walking, biking, and swimming all build this component.</p></div>
+      <div class="card"><div class="badge g">BC</div><h3>Body composition</h3><p>The proportion of fat tissue to lean tissue in the body.</p></div>
+    </div>
+
+    <h3 style="font-size:15px;margin:26px 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;">Skill-related components</h3>
+    <div class="grid">
+      <div class="card"><div class="badge a">AG</div><h3>Agility</h3><p>The ability to rapidly and accurately change the direction of the whole body in space while keeping your balance.</p></div>
+      <div class="card"><div class="badge a">BA</div><h3>Balance</h3><p>The ability to maintain equilibrium — control of your body — whether stationary or moving.</p></div>
+      <div class="card"><div class="badge a">CO</div><h3>Coordination</h3><p>The ability to use your senses and body parts together to perform motor tasks smoothly and accurately.</p></div>
+      <div class="card"><div class="badge a">PO</div><h3>Power</h3><p>The ability to perform a task quickly and forcefully. Expressed as strength × speed.</p></div>
+      <div class="card"><div class="badge a">RT</div><h3>Reaction time</h3><p>The ability to respond quickly to what you hear, see, or feel.</p></div>
+      <div class="card"><div class="badge a">SP</div><h3>Speed</h3><p>The ability to move quickly from one point to another.</p></div>
+    </div>
+  </section>
+
+  <!-- BODY COMPOSITION / BMI -->
+  <section id="bmi">
+    <div class="section-head">
+      <p class="kicker">Applied skill</p>
+      <h2 class="title">Body Mass Index (BMI)</h2>
+      <p>The standard health professionals use to determine whether a person's weight is healthful, based on body composition.</p>
+    </div>
+    <div class="two-col">
+      <div class="bmi-box">
+        <div class="cat" style="color:#8FE0B4;font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;">Formula</div>
+        <div class="formula">BMI = weight (kg) ÷ height² (m)</div>
+        <div class="steps">
+          <p>Conversion factors: 1 m = 100 cm · 1 inch = 2.54 cm · 1 ft = 12 inches</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Worked example</h3>
+        <p style="margin-bottom:10px;">Compute the BMI of Allan, who weighs 65 kg and stands 5 ft 7 in tall.</p>
+        <table class="rubric">
+          <tr><td>Height</td><td>5 ft 7 in = 67 in × 2.54 = 170.18 cm = 1.70 m</td></tr>
+          <tr><td>Height²</td><td>1.70 m × 1.70 m ≈ 2.90 m²</td></tr>
+          <tr><td>BMI</td><td>65 ÷ 2.90 ≈ 22.4</td></tr>
+        </table>
+        <span class="result">Result: Normal weight</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits" class="alt">
+    <div class="section-head">
+      <p class="kicker">Why it matters</p>
+      <h2 class="title">Benefits of active participation in sports &amp; recreation</h2>
+      <p>Regular participation pays off across four dimensions of life.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="badge g">HB</div>
+        <h3>Health benefits</h3>
+        <p>A road map to good health and longevity: improved quality of life, lower blood pressure, reduced arthritis pain, and weight loss.</p>
+      </div>
+      <div class="card">
+        <div class="badge g">PB</div>
+        <h3>Physical benefits</h3>
+        <p>Improvement of skills specific to a particular activity, plus relaxation, rest, and revitalization.</p>
+      </div>
+      <div class="card">
+        <div class="badge a">MB</div>
+        <h3>Mental &amp; emotional benefits</h3>
+        <p>Release of stress from everyday demands, greater personal confidence and self-esteem, and a sense of achievement.</p>
+      </div>
+      <div class="card">
+        <div class="badge a">SB</div>
+        <h3>Social benefits</h3>
+        <p>Bonding with family and friends, new friendships and acquaintances, and stronger social networks and community identity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 DIMENSIONS -->
+  <section id="wellness">
+    <div class="section-head">
+      <p class="kicker">Whole-person model</p>
+      <h2 class="title">The 7 dimensions of wellness</h2>
+      <p>Fitness is one slice of a larger picture. These seven dimensions together define overall wellness.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="badge g">1</div><h3>Physical</h3><p>The health of your physical body.</p></div>
+      <div class="card"><div class="badge g">2</div><h3>Emotional</h3><p>Your psychological and emotional perspective about yourself and the world around you.</p></div>
+      <div class="card"><div class="badge g">3</div><h3>Intellectual</h3><p>Open-mindedness and an intelligent response to stimuli, decision-making skill, and lifelong learning.</p></div>
+      <div class="card"><div class="badge g">4</div><h3>Social</h3><p>Your interaction and relationships with others.</p></div>
+      <div class="card"><div class="badge g">5</div><h3>Career</h3><p>Personal satisfaction from your career or job, and your contribution as a productive member of society.</p></div>
+      <div class="card"><div class="badge g">6</div><h3>Environmental</h3><p>Your responsibility to take care of the environment.</p></div>
+      <div class="card"><div class="badge g">7</div><h3>Spiritual</h3><p>Your religious beliefs and practices, and — more importantly — their effect on every other dimension of your wellbeing.</p></div>
+    </div>
+  </section>
+
+  <!-- FITT -->
+  <section id="fitt" class="alt">
+    <div class="section-head">
+      <p class="kicker">Planning framework</p>
+      <h2 class="title">The FITT principle</h2>
+      <p>Four variables to adjust when designing a personal exercise plan.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="idx">F</span><div><strong>Frequency</strong> — how often you exercise. Aim for a balanced routine that challenges the body while leaving time to rest, adapt, and heal — often two to three, or three to five, days a week.</div></li>
+      <li><span class="idx">I</span><div><strong>Intensity</strong> — how much effort or work you exert. Avoid overloading or over-straining your body; monitor your heart rate and resistance as you train.</div></li>
+      <li><span class="idx">T</span><div><strong>Type</strong> — what kind of exercise fits your goal. Running, cycling, and swimming build the heart; lifting weights builds muscle.</div></li>
+      <li><span class="idx">T</span><div><strong>Time</strong> — how long each session lasts. Duration depends on the intensity and type of exercise chosen.</div></li>
+    </ol>
+    <div class="callout gold">
+      <h4>Q1 Performance Task</h4>
+      Create a personalized video of your own one-week fitness plan, built around the FITT principle. Check the rubric provided by your instructor before filming.
+    </div>
+  </section>
+
+  <!-- WARM UP -->
+  <section id="warmup">
+    <div class="section-head">
+      <p class="kicker">PATHFIT 101 · Movement Competency Training, Week 4</p>
+      <h2 class="title">Warm-up exercises</h2>
+      <p>Preparation for the body before rigorous physical activity. Warming up raises your heart rate, increases blood flow, and warms your muscles — helping you avoid injury and move better through your workout.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card"><div class="badge g">1</div><h3>Protects your muscles</h3><p>Warm muscles stretch and bend easily instead of tearing.</p></div>
+      <div class="card"><div class="badge g">2</div><h3>Helps your heart</h3><p>Raises your heart rate gradually, so it doesn't jump straight into heavy work.</p></div>
+      <div class="card"><div class="badge g">3</div><h3>Sends more oxygen</h3><p>Moving blood carries vital oxygen directly to your working muscles.</p></div>
+      <div class="card"><div class="badge g">4</div><h3>Wakes up your brain</h3><p>Sharpens your balance, focus, and reaction time.</p></div>
+      <div class="card"><div class="badge g">5</div><h3>Lubricates your joints</h3><p>Fluid moves into the joints so they move smoothly, without pain.</p></div>
+    </div>
+
+    <h3 style="font-size:15px;margin:30px 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;">The 11-move warm-up sequence</h3>
+    <ol class="steps">
+      <li><span class="idx">1</span>Jogging on the spot — 15 seconds</li>
+      <li><span class="idx">2</span>Star jumps — 10x</li>
+      <li><span class="idx">3</span>Arm circles</li>
+      <li><span class="idx">4</span>Arm scissors</li>
+      <li><span class="idx">5</span>Jump lunges — 10x</li>
+      <li><span class="idx">6</span>Calf raises</li>
+      <li><span class="idx">7</span>Ankle rolls</li>
+      <li><span class="idx">8</span>Step &amp; swing — 10x</li>
+      <li><span class="idx">9</span>Toe touches — 15x</li>
+      <li><span class="idx">10</span>Open and close the gate — 15x</li>
+      <li><span class="idx">11</span>Knee hops — 10x</li>
+    </ol>
+    <div class="callout">
+      <h4>Cool-down note</h4>
+      Repeat the same sequence for your cool-down after rigorous physical activity.
+    </div>
+
+    <div class="two-col" style="margin-top:26px;">
+      <div class="card">
+        <h3>Scoring rubric — 25 points</h3>
+        <table class="rubric">
+          <tr><th>Rating</th><th>Points</th></tr>
+          <tr><td>Excellent</td><td>25</td></tr>
+          <tr><td>Very good</td><td>20</td></tr>
+          <tr><td>Good</td><td>15</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Course description</h3>
+        <p>This course on movement enhancement enables the learner to set goals and monitor their participation in aerobic, muscle-, and bone-strengthening activities — maximizing every movement and continually evaluating how well it has been integrated into their personal lifestyle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS -->
+  <section id="flashcards" class="alt">
+    <div class="section-head">
+      <p class="kicker">Practice</p>
+      <h2 class="title">Flashcards</h2>
+      <p>Tap or click a card to flip it. Use "Know it" / "Review again" to sort as you go, or shuffle for a fresh order.</p>
+    </div>
+    <div class="flash-wrap">
+      <div class="flash-meta">
+        <span id="flashCount">Card 1 of 28</span>
+        <span id="flashKnown">Marked known: 0</span>
+      </div>
+      <div class="flash-progress"><div id="flashProgressBar"></div></div>
+      <div class="flash-scene" id="flashScene">
+        <div class="flash-card" id="flashCard">
+          <div class="face front">
+            <div class="cat" id="flashCatFront">TERM</div>
+            <div class="term" id="flashTerm">—</div>
+            <div class="hint">Click to reveal definition</div>
+          </div>
+          <div class="face back">
+            <div class="cat" id="flashCatBack">DEFINITION</div>
+            <div class="def" id="flashDef">—</div>
+            <div class="hint">Click to flip back</div>
+          </div>
+        </div>
+      </div>
+      <div class="flash-controls">
+        <button class="btn" id="flashPrev">← Prev</button>
+        <button class="btn ghost" id="flashShuffle">Shuffle</button>
+        <button class="btn primary" id="flashKnow">Know it ✓</button>
+        <button class="btn" id="flashNext">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <div class="section-head">
+      <p class="kicker">Self-check</p>
+      <h2 class="title">Quick quiz</h2>
+      <p>18 questions covering both modules. Pick an answer to see instant feedback, then move to the next question.</p>
+    </div>
+
+    <div class="quiz-card" id="quizCard">
+      <div class="quiz-top">
+        <span id="quizProgressLabel">Question 1 of 18</span>
+        <div class="quiz-dots" id="quizDots"></div>
+      </div>
+      <div id="quizBody">
+        <p class="q-text" id="quizQuestion">—</p>
+        <div class="choices" id="quizChoices"></div>
+        <div class="feedback" id="quizFeedback"></div>
+        <div class="quiz-actions">
+          <button class="btn primary" id="quizNext" disabled>Next question →</button>
+        </div>
+      </div>
+      <div id="quizResult" class="quiz-result" style="display:none;">
+        <div class="score"><span id="scoreNum">0</span><span> / 18</span></div>
+        <p class="msg" id="scoreMsg">—</p>
+        <button class="btn primary" id="quizRetry">Retake quiz</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>Study reviewer generated from PE10 (Physical Education) and PATHFIT 101 — Week 4 course materials.</div>
+  <div class="src">For personal review use — verify against your official course modules before an exam.</div>
+</footer>
+
+<script>
+// ---------------- FLASHCARDS ----------------
+const flashcards = [
+  {cat:"Concept", term:"Physical Fitness", def:"The ability to execute everyday tasks without getting short of breath, tired, or sore — the capacity of the heart, lungs, muscles, and joints to perform well."},
+  {cat:"Concept", term:"Physical Activity", def:"Relatively vigorous bodily movement for 30 minutes to 1 hour, 3–4 times a week or more, that elevates your heart rate."},
+  {cat:"Concept", term:"Recreational Activities", def:"Activities done during leisure time, purely to refresh and enjoy oneself."},
+  {cat:"Health-related", term:"Muscular Strength", def:"The amount of force muscles exert — the basis for lifting, pushing, kicking, and throwing with power."},
+  {cat:"Health-related", term:"Muscular Endurance", def:"The ability to use a group of muscles for a long period without getting tired easily."},
+  {cat:"Health-related", term:"Flexibility", def:"The ability to bend, twist, reach, and move the joints easily through their full range."},
+  {cat:"Health-related", term:"Cardiorespiratory Endurance", def:"The ability to perform activities that require increased oxygen over a period of time."},
+  {cat:"Health-related", term:"Heart Rate", def:"The number of times your heart beats per minute."},
+  {cat:"Health-related", term:"Body Composition", def:"The proportion of fat tissue to lean tissue in the body."},
+  {cat:"Health-related", term:"Body Mass Index (BMI)", def:"A standard used to determine whether a person's weight is healthful, calculated as weight (kg) ÷ height² (m)."},
+  {cat:"Skill-related", term:"Agility", def:"The ability to rapidly and accurately change the direction of the whole body in space while maintaining balance."},
+  {cat:"Skill-related", term:"Balance", def:"The ability to maintain equilibrium — control of your body — while stationary or moving."},
+  {cat:"Skill-related", term:"Coordination", def:"The ability to use the senses and body parts together to perform motor tasks smoothly and accurately."},
+  {cat:"Skill-related", term:"Power", def:"The ability to perform a task quickly and forcefully; equal to strength × speed."},
+  {cat:"Skill-related", term:"Reaction Time", def:"The ability to react or respond quickly to what you hear, see, or feel."},
+  {cat:"Skill-related", term:"Speed", def:"The ability to move quickly from one point to another."},
+  {cat:"Wellness", term:"Physical Wellness", def:"Refers to the health of your physical body."},
+  {cat:"Wellness", term:"Emotional Wellness", def:"Your psychological and emotional perspective about yourself and the world around you."},
+  {cat:"Wellness", term:"Intellectual Wellness", def:"Open-mindedness, intelligent response to stimuli, decision-making skill, and lifelong learning."},
+  {cat:"Wellness", term:"Social Wellness", def:"Covers your interaction and relationship with others."},
+  {cat:"Wellness", term:"Career Wellness", def:"Personal satisfaction from your career or job and your contribution as a productive member of society."},
+  {cat:"Wellness", term:"Environmental Wellness", def:"Relates to your responsibility to take care of the environment."},
+  {cat:"Wellness", term:"Spiritual Wellness", def:"Your religious beliefs and practices, and their effect on every other dimension of your wellbeing."},
+  {cat:"FITT", term:"Frequency (FITT)", def:"How often you will exercise — balanced enough to challenge the body while allowing time to rest and heal."},
+  {cat:"FITT", term:"Intensity (FITT)", def:"How much effort or work you exert in exercise; monitored via heart rate and resistance."},
+  {cat:"FITT", term:"Type (FITT)", def:"What kind of exercise fits your fitness goal — for the heart (running, cycling, swimming) or for the muscles (lifting weights)."},
+  {cat:"FITT", term:"Time (FITT)", def:"How long you exercise per session, based on the intensity and type chosen."},
+  {cat:"PATHFIT 101", term:"Purpose of a Warm-Up", def:"Raises heart rate, increases blood flow, and warms muscles — preparing the body for action and helping prevent injury."}
+];
+
+let flashOrder = flashcards.map((_,i)=>i);
+let flashIndex = 0;
+let knownSet = new Set();
+let isFlipped = false;
+
+const flashSceneEl = document.getElementById('flashScene');
+const flashCardEl = document.getElementById('flashCard');
+const flashTermEl = document.getElementById('flashTerm');
+const flashDefEl = document.getElementById('flashDef');
+const flashCatFrontEl = document.getElementById('flashCatFront');
+const flashCatBackEl = document.getElementById('flashCatBack');
+const flashCountEl = document.getElementById('flashCount');
+const flashKnownEl = document.getElementById('flashKnown');
+const flashProgressBar = document.getElementById('flashProgressBar');
+
+function renderFlash(){
+  const cardData = flashcards[flashOrder[flashIndex]];
+  flashTermEl.textContent = cardData.term;
+  flashDefEl.textContent = cardData.def;
+  flashCatFrontEl.textContent = cardData.cat.toUpperCase();
+  flashCatBackEl.textContent = "DEFINITION";
+  flashCountEl.textContent = `Card ${flashIndex+1} of ${flashcards.length}`;
+  flashKnownEl.textContent = `Marked known: ${knownSet.size}`;
+  flashProgressBar.style.width = `${((flashIndex+1)/flashcards.length)*100}%`;
+  isFlipped = false;
+  flashCardEl.classList.remove('flipped');
+}
+
+flashSceneEl.addEventListener('click', ()=>{
+  isFlipped = !isFlipped;
+  flashCardEl.classList.toggle('flipped', isFlipped);
+});
+
+document.getElementById('flashNext').addEventListener('click', ()=>{
+  flashIndex = (flashIndex+1) % flashOrder.length;
+  renderFlash();
+});
+document.getElementById('flashPrev').addEventListener('click', ()=>{
+  flashIndex = (flashIndex-1+flashOrder.length) % flashOrder.length;
+  renderFlash();
+});
+document.getElementById('flashShuffle').addEventListener('click', ()=>{
+  for(let i=flashOrder.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [flashOrder[i],flashOrder[j]] = [flashOrder[j],flashOrder[i]];
+  }
+  flashIndex = 0;
+  renderFlash();
+});
+document.getElementById('flashKnow').addEventListener('click', ()=>{
+  knownSet.add(flashOrder[flashIndex]);
+  flashIndex = (flashIndex+1) % flashOrder.length;
+  renderFlash();
+});
+document.addEventListener('keydown', (e)=>{
+  if(!document.getElementById('flashcards').getBoundingClientRect().top < window.innerHeight) return;
+});
+renderFlash();
+
+// ---------------- QUIZ ----------------
+const quizData = [
+  {q:"Physical fitness is best defined as:", choices:["The ability to lift the heaviest weight possible","The ability to execute everyday tasks without getting short of breath, tired, or sore","Being a professional athlete","Having a fast reaction time only"], correct:1, note:"Physical fitness reflects how well your heart, lungs, muscles, and joints perform everyday tasks."},
+  {q:"According to the module, moderate physical activity should elevate your heart rate for about how long per session?", choices:["5–10 minutes","30 minutes to 1 hour","3 hours","All day"], correct:1, note:"Moderate physical activity is described as vigorous bodily movement for 30 minutes to 1 hour."},
+  {q:"Recreational activities are best described as:", choices:["Mandatory training drills","Activities done during leisure time to refresh oneself","Competitive sports only","Household chores"], correct:1, note:"Recreational activities happen in leisure time and are meant to be enjoyable and refreshing."},
+  {q:"Which health-related component lets you pedal a bicycle uphill for a long time without stopping?", choices:["Muscular strength","Muscular endurance","Agility","Reaction time"], correct:1, note:"Muscular endurance is the ability to use muscles repeatedly over a long period without tiring."},
+  {q:"Which component is defined as the ability to bend, twist, reach, and move joints easily?", choices:["Flexibility","Balance","Power","Speed"], correct:0, note:"Flexibility governs range of motion — used, for example, when touching your toes."},
+  {q:"Cardiorespiratory endurance mainly involves activities that require:", choices:["Increased oxygen over time","Maximum lifting force","Fine motor precision","Instant reflexes"], correct:0, note:"Running, walking, biking, and swimming all build cardiorespiratory endurance."},
+  {q:"Body composition refers to:", choices:["Your total body weight","The proportion of fat tissue to lean tissue in the body","Your muscle strength score","Your height-to-weight ratio in feet"], correct:1, note:"Body composition is specifically the fat-to-lean-tissue ratio, not weight alone."},
+  {q:"BMI is calculated using which formula?", choices:["Weight (kg) ÷ height (m)","Weight (kg) ÷ height² (m)","Height (m) ÷ weight (kg)","Weight (lb) × height (in)"], correct:1, note:"BMI = weight in kilograms divided by height in meters squared."},
+  {q:"Allan weighs 65 kg and is 5 ft 7 in tall. What is his BMI classification?", choices:["Underweight","Normal weight","Overweight","Obese"], correct:1, note:"65 ÷ (1.70m)² ≈ 22.4, which falls in the Normal weight range."},
+  {q:"Which of these is a SKILL-related fitness component, not a health-related one?", choices:["Flexibility","Body composition","Agility","Muscular endurance"], correct:2, note:"Agility, balance, coordination, power, reaction time, and speed are the six skill-related components."},
+  {q:"Agility is the ability to:", choices:["Hold a static stretch","Rapidly and accurately change the direction of the whole body while maintaining balance","Lift maximum weight once","Sustain a slow jog for an hour"], correct:1, note:"Agility is about quick, controlled direction changes."},
+  {q:"Power, as defined in the module, is equal to:", choices:["Strength ÷ speed","Strength × speed","Speed − reaction time","Balance × coordination"], correct:1, note:"Power = strength × speed — performing a task quickly and forcefully."},
+  {q:"In the FITT principle, the 'F' stands for:", choices:["Fitness","Frequency","Flexibility","Force"], correct:1, note:"Frequency refers to how often you exercise."},
+  {q:"Monitoring your heart rate and resistance during exercise, to avoid overload or injury, relates to which FITT variable?", choices:["Type","Time","Intensity","Frequency"], correct:2, note:"Intensity is how much effort or work you exert, monitored via heart rate and resistance."},
+  {q:"Which dimension of wellness covers decision-making skill and lifelong learning?", choices:["Social wellness","Intellectual wellness","Career wellness","Spiritual wellness"], correct:1, note:"Intellectual wellness covers open-mindedness, decision-making, and lifelong learning."},
+  {q:"'Lower blood pressure, reduced arthritis pain, and weight loss' are listed under which benefit category?", choices:["Physical benefits","Social benefits","Health benefits","Mental and emotional benefits"], correct:2, note:"These outcomes are grouped under Health benefits in the module."},
+  {q:"Warming up 'wakes up your brain' by improving which of the following?", choices:["Muscle size","Balance, focus, and reaction time","Body composition","Flexibility only"], correct:1, note:"One key benefit of warming up is sharpened balance, focus, and reaction time."},
+  {q:"In the PATHFIT 101 warm-up performance task, how many points is an 'Excellent' rating worth?", choices:["15","20","25","30"], correct:2, note:"The rubric awards 25 points for Excellent, 20 for Very good, and 15 for Good."}
+];
+
+let quizIndex = 0;
+let quizScore = 0;
+let quizAnswered = false;
+const quizResults = new Array(quizData.length).fill(null); // null, true, false
+
+const quizQuestionEl = document.getElementById('quizQuestion');
+const quizChoicesEl = document.getElementById('quizChoices');
+const quizFeedbackEl = document.getElementById('quizFeedback');
+const quizNextBtn = document.getElementById('quizNext');
+const quizProgressLabel = document.getElementById('quizProgressLabel');
+const quizDotsEl = document.getElementById('quizDots');
+const quizBody = document.getElementById('quizBody');
+const quizResultEl = document.getElementById('quizResult');
+
+function buildDots(){
+  quizDotsEl.innerHTML = "";
+  quizData.forEach((_, i)=>{
+    const d = document.createElement('div');
+    d.className = 'qdot';
+    if(i === quizIndex) d.classList.add('current');
+    if(quizResults[i] === true) d.classList.add('done');
+    if(quizResults[i] === false) d.classList.add('wrong');
+    quizDotsEl.appendChild(d);
+  });
+}
+
+function renderQuiz(){
+  quizBody.style.display = 'block';
+  quizResultEl.style.display = 'none';
+  quizAnswered = false;
+  quizNextBtn.disabled = true;
+  quizFeedbackEl.classList.remove('show');
+  const item = quizData[quizIndex];
+  quizQuestionEl.textContent = item.q;
+  quizProgressLabel.textContent = `Question ${quizIndex+1} of ${quizData.length}`;
+  quizChoicesEl.innerHTML = "";
+  const letters = ['A','B','C','D'];
+  item.choices.forEach((choiceText, i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = `<span class="letter">${letters[i]}</span><span>${choiceText}</span>`;
+    btn.addEventListener('click', ()=> selectAnswer(i, btn));
+    quizChoicesEl.appendChild(btn);
+  });
+  buildDots();
+}
+
+function selectAnswer(i, btnEl){
+  if(quizAnswered) return;
+  quizAnswered = true;
+  const item = quizData[quizIndex];
+  const allBtns = quizChoicesEl.querySelectorAll('.choice');
+  allBtns.forEach(b=> b.disabled = true);
+  if(i === item.correct){
+    btnEl.classList.add('correct');
+    quizScore++;
+    quizResults[quizIndex] = true;
+    quizFeedbackEl.textContent = `Correct — ${item.note}`;
+  } else {
+    btnEl.classList.add('incorrect');
+    allBtns[item.correct].classList.add('correct');
+    quizResults[quizIndex] = false;
+    quizFeedbackEl.textContent = `Not quite — ${item.note}`;
+  }
+  quizFeedbackEl.classList.add('show');
+  quizNextBtn.disabled = false;
+  buildDots();
+}
+
+quizNextBtn.addEventListener('click', ()=>{
+  if(quizIndex < quizData.length - 1){
+    quizIndex++;
+    renderQuiz();
+  } else {
+    showResult();
+  }
+});
+
+function showResult(){
+  quizBody.style.display = 'none';
+  quizResultEl.style.display = 'block';
+  document.getElementById('scoreNum').textContent = quizScore;
+  let msg = "";
+  const pct = quizScore/quizData.length;
+  if(pct === 1) msg = "Perfect score — you've got this unit down cold.";
+  else if(pct >= 0.8) msg = "Strong grasp of the material — review the missed items and you're exam-ready.";
+  else if(pct >= 0.5) msg = "Good start. Revisit the sections tied to your missed questions.";
+  else msg = "Worth another pass — go through the topic sections above, then retake the quiz.";
+  document.getElementById('scoreMsg').textContent = msg;
+}
+
+document.getElementById('quizRetry').addEventListener('click', ()=>{
+  quizIndex = 0; quizScore = 0; quizResults.fill(null);
+  renderQuiz();
+});
+
+renderQuiz();
+
+// ---------------- NAV ----------------
+const navButtons = document.querySelectorAll('nav.subnav button');
+const sections = Array.from(navButtons).map(b => document.getElementById(b.dataset.target));
+
+navButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const target = document.getElementById(btn.dataset.target);
+    const y = target.getBoundingClientRect().top + window.pageYOffset - 54;
+    window.scrollTo({top:y, behavior:'smooth'});
+  });
+});
+
+function updateActiveNav(){
+  let currentIdx = 0;
+  const scrollPos = window.scrollY + 120;
+  sections.forEach((sec, i)=>{
+    if(sec && sec.offsetTop <= scrollPos) currentIdx = i;
+  });
+  navButtons.forEach((b,i)=> b.classList.toggle('active', i===currentIdx));
+}
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
+</script>
+</body>
+</html>
