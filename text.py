@@ -1,18 +1,7 @@
-# Calculator Program
-a = float(input("First number: "))
-op = input("Operator (+, -, *, /): ")
-b = float(input("Second number: "))
+import random
+import string
 
-if op == "+":
-  print(a + b)
-elif op == "-":
-    print(a - b)
-elif op == "*":
-    print(a * b)
-elif op == "/":
-    if b == 0:
-        print("Cannot divide by zero")
-    else:
-        print(a / b)
-else:
-    print("Invalid operator")
+characters = string.ascii_letters + string.digits
+random_string = "".join(random.choice(characters) for _ in range(6))
+
+print("Random 6-character string:", random_string)
