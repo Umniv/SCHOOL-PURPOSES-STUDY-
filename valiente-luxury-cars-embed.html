@@ -1,0 +1,615 @@
+<!-- Valiente Luxury Cars - Google Sites Embed (Premium Edition) -->
+<!-- In Google Sites: Insert > Embed > Embed code > paste this whole file. Make the embed block full width and tall. -->
+<!-- Search for "EDIT" to find the parts you should customize. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  :root {
+    --bg: #07070a;
+    --panel: #101013;
+    --line: #25252b;
+    --ink: #f3efe6;
+    --muted: #a39e92;
+    --gold: #c9a45c;
+    --gold-soft: #ecd9a4;
+    --gold-grad: linear-gradient(135deg, #f4e2a8 0%, #c9a45c 48%, #8f6f2e 100%);
+    --serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+    --sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+  body > * { flex-shrink: 0; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+
+  .gold-text { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    padding: 16px 6%; position: sticky; top: 0; z-index: 20;
+    background: rgba(7,7,10,.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,164,92,.25);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .mark { width: 34px; height: 34px; border: 1px solid var(--gold); transform: rotate(45deg); display: grid; place-items: center; flex: none; }
+  .mark i { transform: rotate(-45deg); font-style: normal; font-family: var(--serif); font-size: 18px; color: var(--gold); line-height: 1; }
+  .brand-text { font-family: var(--serif); font-size: 21px; letter-spacing: 6px; text-transform: uppercase; line-height: 1.1; }
+  .brand-text small { display: block; font-family: var(--sans); font-size: 8.5px; letter-spacing: 7px; color: var(--gold); margin-top: 3px; }
+  .nav-links { display: flex; gap: 30px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
+  .nav-links a { position: relative; padding: 4px 0; transition: color .3s; }
+  .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--gold); transition: width .35s; }
+  .nav-links a:hover { color: var(--gold-soft); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-block; padding: 16px 38px; font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold-soft);
+    border: 1px solid rgba(201,164,92,.7); background: transparent; cursor: pointer;
+    transition: all .35s ease; position: relative; overflow: hidden;
+  }
+  .btn:hover { background: rgba(201,164,92,.12); border-color: var(--gold-soft); letter-spacing: 4px; }
+  .btn.solid { background: var(--gold-grad); color: #14110a; border-color: transparent; box-shadow: 0 10px 30px rgba(201,164,92,.18); }
+  .btn.solid:hover { filter: brightness(1.1); box-shadow: 0 14px 40px rgba(201,164,92,.32); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; min-height: clamp(600px, 88vh, 840px); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 120px 7% 100px; background-color: #0b0b0d;
+    /* EDIT: swap the image URL below to change the hero photo */
+    background-image:
+      radial-gradient(ellipse at 50% 40%, rgba(7,7,10,.35) 0%, rgba(7,7,10,.85) 75%),
+      linear-gradient(180deg, rgba(7,7,10,.55) 0%, rgba(7,7,10,.3) 40%, #07070a 100%),
+      url('https://images.unsplash.com/photo-1759646848839-3391e2611f51?auto=format&fit=crop&w=1800&q=70');
+    background-size: cover; background-position: center;
+  }
+  .hero::before { content: ""; position: absolute; inset: 22px; border: 1px solid rgba(201,164,92,.3); pointer-events: none; }
+  .hero-inner { position: relative; max-width: 860px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .eyebrow::before, .eyebrow::after { content: ""; width: 44px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .eyebrow::after { transform: scaleX(-1); }
+  .hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(42px, 7.2vw, 88px); line-height: 1.04; margin: 26px 0 24px; letter-spacing: .5px; }
+  .hero h1 em { font-style: italic; font-weight: 400; display: block; }
+  .hero p { max-width: 580px; margin: 0 auto 40px; color: #c7c2b6; font-weight: 300; font-size: 15.5px; letter-spacing: .3px; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .scroll-cue { position: absolute; bottom: 38px; left: 50%; width: 1px; height: 46px; background: linear-gradient(var(--gold), transparent); }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  .hero-inner > * { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-inner > *:nth-child(2) { animation-delay: .15s; }
+  .hero-inner > *:nth-child(3) { animation-delay: .3s; }
+  .hero-inner > *:nth-child(4) { animation-delay: .45s; }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #0a0a0d; }
+  .trust div { padding: 26px 20px; text-align: center; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); border-right: 1px solid var(--line); }
+  .trust div:last-child { border-right: 0; }
+  .trust b { color: var(--gold); font-weight: 500; margin-right: 10px; }
+
+  /* ---------- SECTION TITLES ---------- */
+  section { padding: 100px 6%; }
+  .section-title { text-align: center; margin-bottom: 60px; }
+  .section-title small { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .section-title h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 5vw, 54px); line-height: 1.1; margin: 12px 0 18px; }
+  .orn { display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--gold); font-size: 9px; }
+  .orn span { width: 70px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .orn span:last-child { transform: scaleX(-1); }
+
+  /* ---------- INVENTORY ---------- */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; max-width: 1180px; margin: 0 auto; }
+  /* centers a lone last card (10 cars = 3 + 3 + 3 + 1) */
+  .grid .card:last-child:nth-child(3n+1) { grid-column: 2; }
+  @media (max-width: 960px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .grid .card:last-child:nth-child(3n+1) { grid-column: auto; }
+  }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: linear-gradient(180deg, #131317, #0c0c0f); border: 1px solid var(--line);
+    transition: transform .5s cubic-bezier(.2,.7,.2,1), border-color .4s, box-shadow .5s; position: relative;
+  }
+  .card:hover { transform: translateY(-10px); border-color: rgba(201,164,92,.65); box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(201,164,92,.12); }
+  .car-img { position: relative; height: 250px; overflow: hidden; background: linear-gradient(135deg, #1d1d22, #0f0f12); }
+  .car-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+  .card:hover .car-img img { transform: scale(1.08); }
+  .car-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(12,12,15,.96) 100%); pointer-events: none; }
+  .badge {
+    position: absolute; top: 16px; left: 16px; z-index: 2; padding: 6px 14px; font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600;
+    background: rgba(7,7,10,.72); backdrop-filter: blur(6px); border: 1px solid rgba(201,164,92,.5); color: var(--gold-soft);
+  }
+  .card-body { padding: 8px 28px 28px; position: relative; z-index: 1; }
+  .tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .card h3 { font-family: var(--serif); font-weight: 500; font-size: 29px; line-height: 1.15; margin: 8px 0 16px; }
+  .specs { display: flex; flex-wrap: wrap; margin-bottom: 22px; font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .specs span { padding: 0 14px; border-left: 1px solid var(--line); }
+  .specs span:first-child { padding-left: 0; border-left: 0; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px; }
+  .price-label { display: block; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+  .price { font-family: var(--serif); font-size: 24px; font-weight: 500; }
+  .price-row a { font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-soft); font-weight: 600; border-bottom: 1px solid rgba(201,164,92,.5); padding-bottom: 3px; transition: all .3s; white-space: nowrap; }
+  .price-row a:hover { color: #fff; border-color: var(--gold-soft); letter-spacing: 3.5px; }
+
+  /* ---------- SHOWROOM BANNER ---------- */
+  .banner {
+    position: relative; text-align: center; padding: 150px 7%; background-color: #0b0b0d;
+    /* EDIT: swap the image URL below to change the banner photo */
+    background-image:
+      linear-gradient(180deg, #07070a 0%, rgba(7,7,10,.55) 28%, rgba(7,7,10,.6) 72%, #07070a 100%),
+      url('https://images.unsplash.com/photo-1766246099181-2055091f8721?auto=format&fit=crop&w=1800&q=70');
+    background-size: cover; background-position: center;
+  }
+  .banner-inner { max-width: 760px; margin: 0 auto; }
+  .banner small { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .banner h2 { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: clamp(30px, 5vw, 56px); line-height: 1.12; margin: 18px 0 34px; }
+
+  /* ---------- WHY US ---------- */
+  .why { background: radial-gradient(ellipse at 50% 0%, #17140d 0%, var(--bg) 70%); border-top: 1px solid var(--line); }
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; max-width: 1100px; margin: 0 auto; }
+  .feature { padding: 14px 40px 20px; border-left: 1px solid var(--line); text-align: left; }
+  .feature:first-child { border-left: 0; }
+  .feature .num { font-family: var(--serif); font-size: 64px; line-height: 1; font-weight: 400; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; opacity: .9; }
+  .feature h4 { font-family: var(--serif); font-weight: 500; font-size: 26px; margin: 10px 0 10px; }
+  .feature p { font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.85; }
+
+  /* ---------- CONTACT ---------- */
+  .contact { border-top: 1px solid var(--line); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; max-width: 1080px; margin: 0 auto; align-items: start; }
+  .contact-info h3 { font-family: var(--serif); font-weight: 500; font-size: 36px; line-height: 1.15; margin-bottom: 16px; }
+  .contact-info > p { color: var(--muted); font-weight: 300; font-size: 14.5px; margin-bottom: 36px; }
+  .info-row { padding: 18px 0; border-top: 1px solid var(--line); }
+  .info-row:last-child { border-bottom: 1px solid var(--line); }
+  .info-row b { display: block; font-weight: 500; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .info-row span, .info-row a { font-family: var(--serif); font-size: 22px; }
+  .info-row a:hover { color: var(--gold-soft); }
+  form { display: grid; gap: 16px; padding: 38px; background: linear-gradient(180deg, #121216, #0c0c0f); border: 1px solid var(--line); position: relative; }
+  form::before { content: ""; position: absolute; top: -1px; left: 38px; right: 38px; height: 2px; background: var(--gold-grad); }
+  input, select, textarea {
+    width: 100%; padding: 15px 16px; background: #0a0a0d; border: 1px solid var(--line); color: var(--ink);
+    font-family: var(--sans); font-size: 13.5px; letter-spacing: .5px; transition: border-color .3s, box-shadow .3s; border-radius: 0; -webkit-appearance: none; appearance: none;
+  }
+  select { background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%); background-position: calc(100% - 20px) 52%, calc(100% - 15px) 52%; background-size: 5px 5px; background-repeat: no-repeat; }
+  input::placeholder, textarea::placeholder { color: #6f6b62; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,164,92,.12); }
+  form .btn { width: 100%; margin-top: 6px; }
+
+  /* ---------- SERVICES ---------- */
+  .services { background: #0a0a0d; border-top: 1px solid var(--line); }
+  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1180px; margin: 0 auto; border: 1px solid var(--line); }
+  .svc { padding: 46px 32px; border-right: 1px solid var(--line); transition: background .45s; }
+  .svc:last-child { border-right: 0; }
+  .svc:hover { background: linear-gradient(180deg, rgba(201,164,92,.09), transparent); }
+  .svc .ico { width: 46px; height: 46px; border: 1px solid rgba(201,164,92,.65); transform: rotate(45deg); display: grid; place-items: center; margin-bottom: 34px; }
+  .svc .ico i { transform: rotate(-45deg); font-style: normal; font-family: var(--serif); font-size: 21px; color: var(--gold); line-height: 1; }
+  .svc h4 { font-family: var(--serif); font-weight: 500; font-size: 26px; margin-bottom: 10px; }
+  .svc p { font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.85; }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto; }
+  .step { text-align: center; position: relative; }
+  .step .n { width: 66px; height: 66px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; margin: 0 auto 24px; font-family: var(--serif); font-size: 27px; color: var(--gold-soft); background: var(--bg); position: relative; z-index: 1; }
+  .step::before { content: ""; position: absolute; top: 33px; left: 50%; width: calc(100% + 30px); height: 1px; background: linear-gradient(90deg, var(--gold), rgba(201,164,92,.08)); }
+  .step:last-child::before { display: none; }
+  .step h4 { font-family: var(--serif); font-weight: 500; font-size: 24px; margin-bottom: 8px; }
+  .step p { font-size: 13px; color: var(--muted); font-weight: 300; max-width: 220px; margin: 0 auto; line-height: 1.8; }
+
+  /* ---------- GALLERY ---------- */
+  .gallery { background: #0a0a0d; border-top: 1px solid var(--line); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 14px; max-width: 1180px; margin: 0 auto; }
+  .gallery-grid figure { position: relative; overflow: hidden; background: #15151a; border: 1px solid var(--line); }
+  .gallery-grid figure:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .gallery-grid figure:nth-child(4) { grid-column: span 2; }
+  .gallery-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .5s; filter: saturate(.92) brightness(.92); }
+  .gallery-grid figure:hover img { transform: scale(1.07); filter: saturate(1.05) brightness(1); }
+  .gallery-grid figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(7,7,10,.9)); pointer-events: none; }
+  .gallery-grid figcaption { position: absolute; left: 18px; bottom: 14px; z-index: 2; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold-soft); font-weight: 500; }
+
+  /* ---------- FAQ ---------- */
+  .faq { max-width: 820px; margin: 0 auto; }
+  details { border-top: 1px solid var(--line); }
+  details:last-child { border-bottom: 1px solid var(--line); }
+  summary { list-style: none; cursor: pointer; padding: 26px 44px 26px 0; font-family: var(--serif); font-size: 24px; line-height: 1.25; position: relative; transition: color .3s; }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover { color: var(--gold-soft); }
+  summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); color: var(--gold); font-family: var(--sans); font-weight: 300; font-size: 26px; }
+  details[open] summary::after { content: "–"; }
+  details p { padding: 0 44px 28px 0; color: var(--muted); font-weight: 300; font-size: 14.5px; line-height: 1.9; }
+
+  /* ---------- VISIT / MAP ---------- */
+  .visit { padding-bottom: 20px; }
+  .map-wrap { position: relative; max-width: 1180px; height: 400px; margin: 0 auto; border: 1px solid var(--line); background: #0d0d10; overflow: hidden; }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(.92) contrast(.9) brightness(.95); }
+  .map-label { position: absolute; left: 26px; bottom: 26px; padding: 16px 26px; background: rgba(7,7,10,.88); border: 1px solid rgba(201,164,92,.55); backdrop-filter: blur(6px); }
+  .map-label b { display: block; font-weight: 500; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
+  .map-label span { font-family: var(--serif); font-size: 22px; }
+
+  /* contact grows to absorb any extra embed height */
+  .contact { flex: 1 0 auto; }
+
+  @media (max-width: 960px) {
+    .svc-grid { grid-template-columns: repeat(2, 1fr); }
+    .svc:nth-child(2) { border-right: 0; }
+    .svc:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .steps { grid-template-columns: repeat(2, 1fr); row-gap: 50px; }
+    .step:nth-child(2)::before { display: none; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 190px; }
+  }
+  @media (max-width: 640px) {
+    .svc-grid { grid-template-columns: 1fr; }
+    .svc { border-right: 0; border-bottom: 1px solid var(--line); padding: 36px 26px; }
+    .svc:last-child { border-bottom: 0; }
+    .steps { grid-template-columns: 1fr; }
+    .step::before { display: none; }
+    .gallery-grid { grid-auto-rows: 150px; gap: 10px; }
+    summary { font-size: 21px; }
+    .map-wrap { height: 340px; }
+    .map-label { left: 12px; right: 12px; bottom: 12px; padding: 12px 18px; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer { text-align: center; padding: 56px 6% 40px; border-top: 1px solid rgba(201,164,92,.25); background: #050507; }
+  footer .brand { justify-content: center; margin-bottom: 22px; }
+  footer p { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #7d786d; }
+  footer .note { margin-top: 10px; font-size: 10px; letter-spacing: 1.5px; text-transform: none; color: #55524b; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px) {
+    .contact-wrap { grid-template-columns: 1fr; gap: 44px; }
+    .feature { border-left: 0; border-top: 1px solid var(--line); padding: 28px 8px; }
+    .feature:first-child { border-top: 0; }
+    .trust div { border-right: 0; border-bottom: 1px solid var(--line); }
+    .trust div:last-child { border-bottom: 0; }
+  }
+  @media (max-width: 640px) {
+    .nav { flex-direction: column; gap: 12px; padding: 14px 5%; }
+    .nav-links { gap: 20px; font-size: 10px; letter-spacing: 2px; }
+    .hero { min-height: 600px; padding: 90px 8% 90px; }
+    .hero::before { inset: 12px; }
+    section { padding: 70px 6%; }
+    .banner { padding: 100px 7%; }
+    form { padding: 28px 22px; }
+    form::before { left: 22px; right: 22px; }
+    .btn { padding: 15px 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-inner > * { animation: none; }
+    html { scroll-behavior: auto; }
+    .card, .car-img img, .btn { transition: none; }
+  }
+</style>
+
+<div id="top"></div>
+
+<!-- EDIT: replace "Valiente" / "Luxury Cars" with your business name if it changes -->
+<header class="nav">
+  <a class="brand" href="#top">
+    <span class="mark"><i>V</i></span>
+    <span class="brand-text">Valiente<small>Luxury Cars</small></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#inventory">Inventory</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Premium &amp; Exotic Automobiles</div>
+    <h1>Find Your Next Dream Car.<em class="gold-text">Own the Moment.</em></h1>
+    <p>Discover a carefully selected collection of luxury, performance and collector cars. Every vehicle is thoroughly inspected, certified and ready for the road.</p>
+    <div class="hero-actions">
+      <a class="btn solid" href="#inventory">View Collection</a>
+      <a class="btn" href="#contact">Book a Test Drive</a>
+    </div>
+  </div>
+  <div class="scroll-cue"></div>
+</div>
+
+<div class="trust">
+  <div><b>◆</b>150-Point Inspection</div>
+  <div><b>◆</b>Private Concierge Service</div>
+  <div><b>◆</b>Nationwide Delivery</div>
+</div>
+
+<section id="inventory">
+  <div class="section-title">
+    <small>Featured Inventory</small>
+    <h2>The Collection</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <div class="grid">
+
+    <!-- EDIT: duplicate or change these cards for each vehicle. Replace the price text with your real price, e.g. ₱10,500,000 -->
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1702208400118-483dfee114c5?auto=format&fit=crop&w=1000&q=70" alt="Yellow Lamborghini Gallardo parked on the road" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Available</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Supercar</div>
+        <h3>Lamborghini Gallardo</h3>
+        <div class="specs"><span>5.2L V10</span><span>AWD</span><span>5,200 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1759646848839-3391e2611f51?auto=format&fit=crop&w=1000&q=70" alt="Yellow Lamborghini Huracan on a race track" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Featured</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Supercar</div>
+        <h3>Lamborghini Huracán</h3>
+        <div class="specs"><span>5.2L V10</span><span>0–100 in 3.2s</span><span>2,800 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1758804024580-bddcff512e84?auto=format&fit=crop&w=1000&q=70" alt="Classic red sports car, front close-up" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Collector</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Classic &amp; Collector</div>
+        <h3>Classic Red Sports Car</h3>
+        <div class="specs"><span>Collector grade</span><span>Full history</span><span>Show condition</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1743045702391-b715df349300?auto=format&fit=crop&w=1000&q=70" alt="Black Ferrari 458 Italia parked on grass" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">New Arrival</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Supercar</div>
+        <h3>Ferrari 458 Italia</h3>
+        <div class="specs"><span>4.5L V8</span><span>RWD</span><span>3,400 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1628852063027-5442b47e5613?auto=format&fit=crop&w=1000&q=70" alt="Blue Porsche 911 on the road in daylight" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Available</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Sports Car</div>
+        <h3>Porsche 911</h3>
+        <div class="specs"><span>Flat-six</span><span>Rear-engine</span><span>6,100 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1725199218574-70b40c7aa3c8?auto=format&fit=crop&w=1000&q=70" alt="Orange McLaren sports car parked in front of a building" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Featured</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Supercar</div>
+        <h3>McLaren Coupé</h3>
+        <div class="specs"><span>Twin-turbo V8</span><span>Mid-engine</span><span>2,100 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=70" alt="Black Mercedes-AMG GT coupe on a grey asphalt road" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Available</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Grand Tourer</div>
+        <h3>Mercedes-AMG GT</h3>
+        <div class="specs"><span>Twin-turbo V8</span><span>AMG</span><span>4,800 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1621195217314-2472aa861fdb?auto=format&fit=crop&w=1000&q=70" alt="White supercar on the road during the day" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">New Arrival</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Supercar</div>
+        <h3>White Supercar</h3>
+        <div class="specs"><span>Mid-engine</span><span>Low mileage</span><span>1,900 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1568954264787-80157b74c5f3?auto=format&fit=crop&w=1000&q=70" alt="Black Aston Martin grand tourer, front detail" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Available</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Grand Tourer</div>
+        <h3>Aston Martin</h3>
+        <div class="specs"><span>Hand-built</span><span>British GT</span><span>7,300 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="car-img">
+        <img src="https://images.unsplash.com/photo-1728415916907-e91c1db8015c?auto=format&fit=crop&w=1000&q=70" alt="Silver Rolls-Royce parked in a garage" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+        <span class="badge">Flagship</span>
+      </div>
+      <div class="card-body">
+        <div class="tag">Ultra Luxury</div>
+        <h3>Rolls-Royce</h3>
+        <div class="specs"><span>Bespoke interior</span><span>Executive comfort</span><span>3,900 km</span></div>
+        <div class="price-row"><div><span class="price-label">Price</span><span class="price gold-text">On Request</span></div><a href="#contact">Inquire</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="banner">
+  <div class="banner-inner">
+    <small>Private Collection</small>
+    <h2>Some of our finest cars never reach the showroom floor.</h2>
+    <a class="btn solid" href="#contact">Request Private Access</a>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="section-title">
+    <small>What We Do</small>
+    <h2>Our Services</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc"><div class="ico"><i>◆</i></div><h4>Buy a Car</h4><p>Browse a hand-selected collection and arrange a private viewing or test drive at your convenience.</p></div>
+    <div class="svc"><div class="ico"><i>⇄</i></div><h4>Sell or Trade-In</h4><p>Upgrading? Tell us about your current car and we'll help you trade it in toward your next one.</p></div>
+    <div class="svc"><div class="ico"><i>₱</i></div><h4>Financing</h4><p>We'll help you explore financing options so the process stays simple from start to finish.</p></div>
+    <div class="svc"><div class="ico"><i>→</i></div><h4>Nationwide Delivery</h4><p>Your car, delivered to your door anywhere in the country, ready for the road.</p></div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-title">
+    <small>The Experience</small>
+    <h2>How It Works</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="n">I</div><h4>Choose</h4><p>Explore the collection and pick the car that speaks to you.</p></div>
+    <div class="step"><div class="n">II</div><h4>Private Viewing</h4><p>See it in person and take it for a test drive.</p></div>
+    <div class="step"><div class="n">III</div><h4>Paperwork</h4><p>We handle the details, from records to documentation.</p></div>
+    <div class="step"><div class="n">IV</div><h4>Drive Away</h4><p>Collect your car or have it delivered, ready for the road.</p></div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="section-title">
+    <small>The Valiente Standard</small>
+    <h2>Why Buy With Us</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <div class="features">
+    <div class="feature"><div class="num">01</div><h4>Certified Quality</h4><p>Every vehicle passes a 150-point inspection before it reaches the showroom.</p></div>
+    <div class="feature"><div class="num">02</div><h4>Concierge Service</h4><p>Private viewings, trade-ins, financing and nationwide delivery handled for you.</p></div>
+    <div class="feature"><div class="num">03</div><h4>Transparent History</h4><p>Full service records and verified ownership history on every car.</p></div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="section-title">
+    <small>Inside the Showroom</small>
+    <h2>The Gallery</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <!-- EDIT: replace these sample photos with your own showroom and inventory photos -->
+  <div class="gallery-grid">
+    <figure><img src="https://images.unsplash.com/photo-1702208400118-483dfee114c5?auto=format&fit=crop&w=1400&q=70" alt="Yellow Lamborghini Gallardo" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>Lamborghini Gallardo</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1758804024580-bddcff512e84?auto=format&fit=crop&w=800&q=70" alt="Classic red sports car" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>Classic Collector</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1743045702391-b715df349300?auto=format&fit=crop&w=800&q=70" alt="Black Ferrari 458 Italia" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>Ferrari 458 Italia</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1728415916907-e91c1db8015c?auto=format&fit=crop&w=1400&q=70" alt="Silver Rolls-Royce in a garage" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>Rolls-Royce</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1725199218574-70b40c7aa3c8?auto=format&fit=crop&w=800&q=70" alt="Orange McLaren sports car" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>McLaren</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1568954264787-80157b74c5f3?auto=format&fit=crop&w=800&q=70" alt="Black Aston Martin" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>Aston Martin</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1759646848839-3391e2611f51?auto=format&fit=crop&w=800&q=70" alt="Yellow Lamborghini Huracan on track" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>Lamborghini Huracán</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1766246099181-2055091f8721?auto=format&fit=crop&w=800&q=70" alt="Yellow sports car under a cover in a garage" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><figcaption>Private Collection</figcaption></figure>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-title">
+    <small>Good to Know</small>
+    <h2>Frequently Asked Questions</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <div class="faq">
+    <details open>
+      <summary>Can I book a private viewing or test drive?</summary>
+      <p>Yes. Send us an inquiry using the form below or call us, and we'll arrange a time that suits you.</p>
+    </details>
+    <details>
+      <summary>How are your cars inspected?</summary>
+      <p>Every vehicle passes a 150-point inspection before it reaches the showroom, and each car comes with full service records and verified ownership history.</p>
+    </details>
+    <details>
+      <summary>Do you accept trade-ins?</summary>
+      <p>Yes. Choose “Sell / Trade-in my car” in the inquiry form and tell us about your car. Our team will get in touch with you.</p>
+    </details>
+    <details>
+      <summary>Can you help with financing?</summary>
+      <p>Yes. We can help you explore financing options. Contact us and we'll walk you through what's available.</p>
+    </details>
+    <details>
+      <summary>Do you deliver outside Cebu?</summary>
+      <p>Yes. We offer nationwide delivery, so your car can be brought to you wherever you are in the country.</p>
+    </details>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="section-title">
+    <small>Find Us</small>
+    <h2>Visit the Showroom</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <!-- EDIT: change the address inside the map link (after q=) to your exact showroom address for a precise pin -->
+  <div class="map-wrap">
+    <iframe src="https://maps.google.com/maps?q=Mandaue%20City%2C%20Cebu%2C%20Philippines&amp;z=13&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Valiente Luxury Cars location map"></iframe>
+    <div class="map-label"><b>Showroom</b><span>Mandaue City, Cebu</span></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <small>Private Appointments</small>
+    <h2>Book a Viewing</h2>
+    <div class="orn"><span></span>◆<span></span></div>
+  </div>
+  <div class="contact-wrap">
+
+    <!-- EDIT: your real contact details -->
+    <div class="contact-info">
+      <h3>Let us arrange your private viewing.</h3>
+      <p>Tell us which car you're interested in and we'll arrange a private viewing or test drive at a time that suits you.</p>
+      <div class="info-row"><b>Showroom</b><span>Mandaue City, Cebu, Philippines</span></div>
+      <div class="info-row"><b>Phone</b><a href="tel:+639106854618" target="_top">+63 910 685 4618</a></div>
+      <div class="info-row"><b>Hours</b><span>Mon–Sat · 9:00 AM – 7:00 PM</span></div>
+    </div>
+
+    <!-- EDIT: change arcadymic@gmail.com to your business email. The form opens the visitor's email app. -->
+    <form action="mailto:arcadymic@gmail.com" method="post" enctype="text/plain" target="_top">
+      <input type="text" name="Name" placeholder="Full name" required>
+      <input type="email" name="Email" placeholder="Email address" required>
+      <input type="tel" name="Phone" placeholder="Phone number">
+      <select name="Interest">
+        <option>Interested in...</option>
+        <option>Grand Tourer</option>
+        <option>Supercar</option>
+        <option>Luxury SUV</option>
+        <option>Classic &amp; Collector</option>
+        <option>Sell / Trade-in my car</option>
+      </select>
+      <textarea name="Message" rows="4" placeholder="Message"></textarea>
+      <button class="btn solid" type="submit">Send Inquiry</button>
+    </form>
+
+  </div>
+</section>
+
+<footer>
+  <a class="brand" href="#top">
+    <span class="mark"><i>V</i></span>
+    <span class="brand-text">Valiente<small>Luxury Cars</small></span>
+  </a>
+  <p>© 2026 Valiente Luxury Cars · All Rights Reserved</p>
+  <p class="note">Sample photos via Unsplash — replace with your own inventory photos</p>
+</footer>
